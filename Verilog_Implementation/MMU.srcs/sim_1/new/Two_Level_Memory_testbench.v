@@ -33,8 +33,9 @@ module Two_Level_Memory_testbench;
     
 
 // REGISTERS declare here
-    reg clock;
+    reg clk;
     reg access_en;
+    reg rst_n;
     reg [1 : 0] config_en;
     reg [(DATA_WIDTH_L2-1) : 0] config_data;
     reg [(VPN_WIDTH-1) : 0] vpn;
@@ -42,18 +43,18 @@ module Two_Level_Memory_testbench;
     
 // INITIAL code here
     initial begin
-        {clock, access_en, config_en, config_data, vpn} = 0;
+        {clk, access_en, rst_n, config_en, config_data, vpn} = 0;
         
         #2
         // unable 
-        {access_en, config_en} = 3'b000;
+        {access_en, rst_n, config_en} = 4'b0100;
         
         for (integer i = 0; i < 10; i = i+1) begin
             
             for (integer j = 0; j < 10; j = j+1) begin
             
                 #1 vpn = i * 1024 + j;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -67,7 +68,7 @@ module Two_Level_Memory_testbench;
             for (integer j = 0; j < 10; j = j+1) begin
             
                 #1 vpn = i * 1024 + j;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -82,7 +83,7 @@ module Two_Level_Memory_testbench;
             
                 #1 vpn = i * 1024 + j;
                 config_data = j + 5;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -96,7 +97,7 @@ module Two_Level_Memory_testbench;
             for (integer j = 0; j < 10; j = j+1) begin
             
                 #1 vpn = i * 1024 + j;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -111,7 +112,7 @@ module Two_Level_Memory_testbench;
     
     
 // ASYNCHRONOUS code here
-    always #1 clock = ~clock;
+    always #1 clk = ~clk;
     
 
 // INSTANTIATIONS code here
@@ -127,7 +128,7 @@ module Two_Level_Memory_testbench;
                        two_level_memory_dut 
                        (
                            .protection_bits(protection_bits),
-                           .clock(clock),
+                           .clk(clk),
                            .access_en(access_en),
                            .config_en(config_en),
                            .config_data(config_data),

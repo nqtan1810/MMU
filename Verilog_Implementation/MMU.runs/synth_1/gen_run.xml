@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1707016271">
-  <File Type="PA-TCL" Name="Memory_Protection.tcl"/>
-  <File Type="REPORTS-TCL" Name="Memory_Protection_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Memory_Protection.vds"/>
-  <File Type="RDS-DCP" Name="Memory_Protection.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1707098637">
+  <File Type="PA-TCL" Name="CAM.tcl"/>
+  <File Type="REPORTS-TCL" Name="CAM_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CAM.vds"/>
+  <File Type="RDS-UTIL" Name="CAM_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="CAM_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="CAM.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Check_Logic.v">
@@ -34,6 +36,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/CAM.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/ram_L1_init.txt">
       <FileInfo SFType="MEM">
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -41,6 +51,26 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/ram_L2_init.txt">
+      <FileInfo SFType="MEM">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CAM.txt">
+      <FileInfo SFType="MEM">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TLB_Translation.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TLB_RAM.txt">
       <FileInfo SFType="MEM">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

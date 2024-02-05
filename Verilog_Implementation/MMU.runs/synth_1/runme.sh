@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Memory_Protection.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Memory_Protection.tcl
+EAStep vivado -log CAM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CAM.tcl

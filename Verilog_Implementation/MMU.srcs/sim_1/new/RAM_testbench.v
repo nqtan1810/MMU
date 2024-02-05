@@ -42,7 +42,7 @@ module RAM_testbench;
         repeat (2) @(posedge clk);
         
         for (integer i = 0; i < 25; i = i+1) begin
-            repeat (1) @(posedge clk) begin
+            repeat (1) @(negedge clk) begin
                 addr <= i;
                 en <= 1;
                 we <= 1;
@@ -51,7 +51,7 @@ module RAM_testbench;
         end
         
         for (integer i = 0; i < 50; i = i+1) begin
-            repeat (1) @(posedge clk) begin
+            repeat (1) @(negedge clk) begin
                 addr <= i;
                 en <= 1;
                 we <= 0;

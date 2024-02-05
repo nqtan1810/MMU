@@ -42,21 +42,22 @@ module Memory_Protection_testbench;
     reg access_en;
     reg [1 : 0] config_en;
     reg [(DATA_WIDTH_L1-1) : 0] config_data;
-    reg clock;
+    reg clk;
+    reg rst_n;
     
 // INITIAL code here
     initial begin
-        {clock, instr_type, access_en, config_en, config_data, vpn} = 0;
+        {clk, instr_type, access_en, config_en, config_data, vpn, rst_n} = 0;
         
         // enable; L1 read; L2 read
-        #1 {access_en, config_en, instr_type} = 4'b1000;
+        #1 {access_en, config_en, instr_type, rst_n} = 5'b10001;
         
         for (integer i = 0; i < 10; i = i+1) begin
             
             for (integer j = 0; j < 25; j = j+1) begin
             
                 #1 vpn = i * 1024 + j;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -70,7 +71,7 @@ module Memory_Protection_testbench;
             for (integer j = 0; j < 25; j = j+1) begin
             
                 #1 vpn = i * 1024 + j;
-                repeat (1) @(posedge clock);
+                repeat (1) @(posedge clk);
                 
             end
         
@@ -85,7 +86,7 @@ module Memory_Protection_testbench;
     
     
 // ASYNCHRONOUS code here
-    always #1 clock = ~clock;
+    always #1 clk = ~clk;
     
 
 // INSTANTIATIONS code here
@@ -109,8 +110,8 @@ module Memory_Protection_testbench;
         .access_en(access_en),
         .config_en(config_en),
         .config_data(config_data),
-        .clock(clock)
-        //reset
+        .clk(clk),
+        .rst_n(rst_n)
     );
 
 endmodule 

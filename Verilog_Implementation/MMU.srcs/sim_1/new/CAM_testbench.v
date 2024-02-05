@@ -27,7 +27,7 @@ module CAM_testbench();
     parameter PATH = "CAM.txt";
     
     reg clk, rst_n;
-    reg       we;
+    reg en, we;
     reg [DATA_WIDTH - 2 : 0]  pattern;
     reg [ADDR_WIDTH - 1 : 0]  wr_addr;
     wire [ADDR_WIDTH - 1 : 0] maddr;
@@ -42,6 +42,7 @@ module CAM_testbench();
         (
             .clk(clk), 
             .rst_n(rst_n),
+            .en(en),
             .we(we),
             .pattern(pattern),
             .wr_addr(wr_addr),    
@@ -49,16 +50,17 @@ module CAM_testbench();
             .mfound(mfound)
         );
         
-    always #10 clk = ~clk;
+    always #5 clk = ~clk;
     
     integer i;
     initial begin
     
-        {clk, rst_n, we, pattern, wr_addr} = 0;
-        #5
+        {clk, rst_n, en, we, pattern, wr_addr} = 0;
+        #10
         rst_n = 1;
+        en = 1;
         for(i = 0; i < 2 ** ADDR_WIDTH ; i = i + 1) begin
-            #20 pattern = i;
+            #10 pattern = i;
         end
     
     end

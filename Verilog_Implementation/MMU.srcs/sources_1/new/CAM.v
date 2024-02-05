@@ -12,7 +12,7 @@ module CAM
     input [DATA_WIDTH - 2 : 0]  pattern,                // Vpn to be compared to all 64 line (20 bit VPN)
     input [ADDR_WIDTH - 1 : 0]  wr_addr,    // Write address
     output [ADDR_WIDTH - 1 : 0] maddr,      // Matched address
-    output                      mfound
+    output                      mfound      // TLB hit
 );
     
     integer i;
@@ -20,6 +20,12 @@ module CAM
     reg [DATA_WIDTH - 1 : 0]    ram [2 ** ADDR_WIDTH - 1 : 0];
     
     wire [2 ** ADDR_WIDTH - 1 : 0] match_line;
+    
+    // INITIAL code here
+    initial 
+    begin: INIT
+        $readmemb(PATH, ram);
+    end
     
     assign match_line[63] = (ram[63] == {1'b1, pattern});
     assign match_line[62] = (ram[62] == {1'b1, pattern});
@@ -96,7 +102,7 @@ module CAM
     assign mfound = |match_line;
     // encoder match address
     assign maddr[5] =   | match_line[63:32];
-    assign maddr[4] =   | (match_line[21:16] | match_line[63:48]);
+    assign maddr[4] =   | (match_line[31:16] | match_line[63:48]);
     assign maddr[3] =   | (match_line[15:8] | match_line[31:24] | match_line[47:40] | match_line[63:56]);
     assign maddr[2] =   | (match_line[7:4] | match_line[15:12] | match_line[23:20] | match_line[31:28] |
                            match_line[39:36] | match_line[47:44] | match_line[55:52] | match_line[63:60]);

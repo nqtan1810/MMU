@@ -47,7 +47,7 @@ module Memory_Protection
                 two_level_mem
                 (   
                     .protection_bits(protection_bits),
-                    .clock(clk),
+                    .clk(clk),
                     .rst_n(rst_n),
                     .access_en(access_en),
                     .config_en(config_en),
