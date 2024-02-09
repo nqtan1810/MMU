@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Feb  5 08:20:45 2024
+# Process ID: 5944
+# Current directory: D:/MMU/Verilog_Implementation/MMU.runs/synth_1
+# Command line: vivado.exe -log CAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CAM.tcl
+# Log file: D:/MMU/Verilog_Implementation/MMU.runs/synth_1/CAM.vds
+# Journal file: D:/MMU/Verilog_Implementation/MMU.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source CAM.tcl -notrace

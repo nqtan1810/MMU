@@ -1,0 +1,145 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Feb  5 08:21:57 2024
+| Host         : An-Nguyen running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file CAM_control_sets_placed.rpt
+| Design       : CAM
+| Device       : xc7z020
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    67 |
+|    Minimum number of control sets                        |    67 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   365 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    67 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    65 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              91 |           43 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               8 |            4 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            1184 |          252 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------+---------------------+------------------+----------------+--------------+
+|  Clock Signal  |    Enable Signal    |   Set/Reset Signal  | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------------+---------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | ram[19][20]_i_1_n_0 |                     |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | ram[28][20]_i_1_n_0 |                     |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | ram[28][20]_i_1_n_0 | ram[28][19]_i_1_n_0 |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | ram[37][19]_i_2_n_0 | ram[37][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[35][19]_i_2_n_0 | ram[35][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[13][19]_i_2_n_0 | ram[13][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[50][19]_i_2_n_0 | ram[50][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[11][19]_i_2_n_0 | ram[11][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[42][19]_i_2_n_0 | ram[42][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[25][19]_i_2_n_0 | ram[25][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[56][19]_i_2_n_0 | ram[56][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[22][19]_i_2_n_0 | ram[22][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[44][19]_i_2_n_0 | ram[44][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[7][19]_i_2_n_0  | ram[7][19]_i_1_n_0  |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[52][19]_i_2_n_0 | ram[52][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[26][19]_i_2_n_0 | ram[26][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[41][19]_i_2_n_0 | ram[41][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[14][19]_i_2_n_0 | ram[14][19]_i_1_n_0 |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | ram[49][19]_i_2_n_0 | ram[49][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[38][19]_i_2_n_0 | ram[38][19]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | ram[19][20]_i_1_n_0 | ram[19][19]_i_1_n_0 |                3 |             17 |         5.67 |
+|  clk_IBUF_BUFG | ram[21][19]_i_2_n_0 | ram[21][19]_i_1_n_0 |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | ram[12][19]_i_2_n_0 | ram[12][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[48][19]_i_2_n_0 | ram[48][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[10][19]_i_2_n_0 | ram[10][19]_i_1_n_0 |                3 |             18 |         6.00 |
+|  clk_IBUF_BUFG | ram[40][19]_i_2_n_0 | ram[40][19]_i_1_n_0 |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG | ram[33][19]_i_2_n_0 | ram[33][19]_i_1_n_0 |                3 |             18 |         6.00 |
+|  clk_IBUF_BUFG | ram[24][19]_i_2_n_0 | ram[24][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[3][19]_i_2_n_0  | ram[3][19]_i_1_n_0  |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[17][19]_i_2_n_0 | ram[17][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[34][19]_i_2_n_0 | ram[34][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[36][19]_i_2_n_0 | ram[36][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[9][19]_i_2_n_0  | ram[9][19]_i_1_n_0  |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[18][19]_i_2_n_0 | ram[18][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[5][19]_i_2_n_0  | ram[5][19]_i_1_n_0  |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[20][19]_i_2_n_0 | ram[20][19]_i_1_n_0 |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[6][19]_i_2_n_0  | ram[6][19]_i_1_n_0  |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG | ram[16][19]_i_2_n_0 | ram[16][19]_i_1_n_0 |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | ram[4][19]_i_2_n_0  | ram[4][19]_i_1_n_0  |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | ram[2][19]_i_2_n_0  | ram[2][19]_i_1_n_0  |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | ram[8][19]_i_2_n_0  | ram[8][19]_i_1_n_0  |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | ram[1][19]_i_2_n_0  | ram[1][19]_i_1_n_0  |                3 |             19 |         6.33 |
+|  clk_IBUF_BUFG | ram[32][19]_i_2_n_0 | ram[32][19]_i_1_n_0 |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | ram[39][19]_i_2_n_0 | ram[39][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[23][19]_i_2_n_0 | ram[23][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[0][19]_i_2_n_0  | ram[0][19]_i_1_n_0  |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[29][19]_i_2_n_0 | ram[29][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[51][19]_i_2_n_0 | ram[51][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram                 | ram[63][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[43][19]_i_2_n_0 | ram[43][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[57][19]_i_2_n_0 | ram[57][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[55][19]_i_2_n_0 | ram[55][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[31][19]_i_2_n_0 | ram[31][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[45][19]_i_2_n_0 | ram[45][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[62][19]_i_2_n_0 | ram[62][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[58][19]_i_2_n_0 | ram[58][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[47][19]_i_2_n_0 | ram[47][19]_i_1_n_0 |                3 |             20 |         6.67 |
+|  clk_IBUF_BUFG | ram[30][19]_i_2_n_0 | ram[30][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[53][19]_i_2_n_0 | ram[53][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[54][19]_i_2_n_0 | ram[54][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[61][19]_i_2_n_0 | ram[61][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | ram[15][19]_i_2_n_0 | ram[15][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[46][19]_i_2_n_0 | ram[46][19]_i_1_n_0 |                3 |             20 |         6.67 |
+|  clk_IBUF_BUFG | ram[59][19]_i_2_n_0 | ram[59][19]_i_1_n_0 |                3 |             20 |         6.67 |
+|  clk_IBUF_BUFG | ram[60][19]_i_2_n_0 | ram[60][19]_i_1_n_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | ram[27][19]_i_2_n_0 | ram[27][19]_i_1_n_0 |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG |                     |                     |               43 |             91 |         2.12 |
++----------------+---------------------+---------------------+------------------+----------------+--------------+
+
+

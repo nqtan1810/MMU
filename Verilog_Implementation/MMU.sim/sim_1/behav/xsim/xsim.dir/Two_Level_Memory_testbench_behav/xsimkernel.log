@@ -1,0 +1,7 @@
+Running: xsim.dir/Two_Level_Memory_testbench_behav/xsimk.exe -simmode gui -wdb Two_Level_Memory_testbench_behav.wdb -simrunnum 0 -socket 64718
+Design successfully loaded
+Design Loading Memory Usage: 7836 KB (Peak: 7836 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8756 KB (Peak: 8756 KB)
+Simulation CPU Usage: 49874 ms
