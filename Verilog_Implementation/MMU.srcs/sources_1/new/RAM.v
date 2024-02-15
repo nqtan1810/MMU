@@ -42,10 +42,10 @@ module RAM
     always @(posedge clk or negedge rst_n) begin
         if (en) begin
             if(!rst_n) begin
-                for(i = 0; i < 2 ** ADDR_WIDTH ; i = i + 1) begin
-                    ram[i] = 0;
-                end
-            $readmemb(PATH, ram);
+//                for(i = 0; i < 2 ** ADDR_WIDTH ; i = i + 1) begin
+//                    ram[i] <= 0;
+//                end
+                $readmemb(PATH, ram);
             end
             else begin
                 if(we) begin

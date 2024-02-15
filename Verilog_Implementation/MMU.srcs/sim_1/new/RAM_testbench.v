@@ -1,14 +1,4 @@
-//-------------------------------------------------------------------
-// Title       : RAM_testbench
-// Author      : Nguyen Quoc Truong An
-// Created     : 21/10/2023
-// Description : This module is used for testing RAM module
-// 
-//-------------------------------------------------------------------  
-
-// Timescale declare here
 `timescale 1ns/1ps
-
 
 // Your module here
 module RAM_testbench;

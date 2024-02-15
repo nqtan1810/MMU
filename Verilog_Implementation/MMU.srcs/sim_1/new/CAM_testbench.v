@@ -1,37 +1,26 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 02/04/2024 03:02:17 PM
-// Design Name: 
-// Module Name: CAM_testbench
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module CAM_testbench();
     
-    parameter DATA_WIDTH = 21;
+    parameter DATA_WIDTH = 22;
     parameter ADDR_WIDTH = 6;
     parameter PATH = "CAM.txt";
     
-    reg clk, rst_n;
-    reg en, we;
-    reg [DATA_WIDTH - 2 : 0]  pattern;
-    reg [ADDR_WIDTH - 1 : 0]  wr_addr;
-    wire [ADDR_WIDTH - 1 : 0] maddr;
-    wire                      mfound;
+    reg       clk;
+    reg       rst_n;
+    reg       en;
+    reg       we;
+    reg [DATA_WIDTH - 3 : 0]  pattern;               // Vpn to be compared to all 64 line (20 bit VPN)
+    reg [ADDR_WIDTH - 1 : 0]  wr_addr;    // Write address
+    reg mru_add;
+    reg mru_update;
+    reg mru_clear_all;
+    
+    wire [ADDR_WIDTH - 1 : 0] maddr;     // Matched address
+    wire                  mfound;      // TLB hit,
+    wire [2**ADDR_WIDTH - 1 : 0] mru_out;
+    wire [2**ADDR_WIDTH - 1 : 0] valid_out;
+    wire tlb_full;
     
     CAM #(
             .DATA_WIDTH(DATA_WIDTH),
@@ -45,9 +34,15 @@ module CAM_testbench();
             .en(en),
             .we(we),
             .pattern(pattern),
-            .wr_addr(wr_addr),    
+            .wr_addr(wr_addr),  // mux
+            .mru_add(mru_add),
+            .mru_update(mru_update),
+            .mru_clear_all(mru_clear_all),
             .maddr(maddr),      
-            .mfound(mfound)
+            .mfound(mfound),
+            .mru_out(mru_out),
+            .valid_out(valid_out),
+            .tlb_full(tlb_full)
         );
         
     always #5 clk = ~clk;
@@ -55,13 +50,48 @@ module CAM_testbench();
     integer i;
     initial begin
     
-        {clk, rst_n, en, we, pattern, wr_addr} = 0;
-        #10
-        rst_n = 1;
+        {clk, rst_n, en, we, pattern, wr_addr, mru_add, mru_update, mru_clear_all} = 0;
+        #7
         en = 1;
-        for(i = 0; i < 2 ** ADDR_WIDTH ; i = i + 1) begin
-            #10 pattern = i;
-        end
+        #1
+        rst_n = 1;
+        #1
+        rst_n = 0;
+        #1
+        rst_n = 1;
+        we = 1;
+        mru_add = 1;
+        
+//        for(i = 0; i < 2 ** ADDR_WIDTH; i = i + 1) begin
+//            #10 pattern = i;
+//            wr_addr = i;
+//        end
+        
+        
+        #10
+        pattern = 10;
+        wr_addr = 20;
+        
+        #10
+        pattern = 20;
+        wr_addr = 40;
+        
+        #1
+        we = 1;
+        #9
+        pattern = 20'b01011000000000000000;
+        
+        #10
+        pattern = 20'b11101000000000000000;
+        
+        #10
+        pattern = 20'b01011000000000000000;
+        
+        #10
+        pattern = 20'b11000000000000000000;
+        
+        #10 $stop;
+        
     
     end
     

@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../MMU.srcs/sources_1/new/CAM.v" \
+"../../../../MMU.srcs/sources_1/new/RAM.v" \
+"../../../../MMU.srcs/sources_1/new/TLB_Translation.v" \
+"../../../../MMU.srcs/sources_1/new/tlb_translation_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

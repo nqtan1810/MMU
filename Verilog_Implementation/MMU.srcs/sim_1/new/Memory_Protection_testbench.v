@@ -1,14 +1,4 @@
-//-------------------------------------------------------------------
-// Title       : RAM_testbench
-// Author      : Nguyen Quoc Truong An
-// Created     : 21/10/2023
-// Description : This module is used for testing Memory_Protection module
-// 
-//-------------------------------------------------------------------  
-
-// Timescale declare here
 `timescale 1ns/1ps
-
 
 // Your module here
 module Memory_Protection_testbench;
